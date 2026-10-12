@@ -6,10 +6,9 @@ import './index.css';
 
 function seedLibraryDatabase() {
   const BOOKS_KEY = "libraryBooks";
-  
+
   if (!localStorage.getItem(BOOKS_KEY)) {
     const defaultBooks = [
-    
       {
         id: 10001,
         title: "Chaka",
@@ -24,9 +23,8 @@ function seedLibraryDatabase() {
         author: "Thomas Mofolo",
         genre: "Fiction",
         isbn: "9780947054137",
-        quantity: 1 
+        quantity: 1
       },
-   
       {
         id: 10003,
         title: "Clean Code",
@@ -41,7 +39,7 @@ function seedLibraryDatabase() {
         author: "Marijn Haverbeke",
         genre: "Programming",
         isbn: "9781593279509",
-        quantity: 1 
+        quantity: 1
       },
       {
         id: 10005,
@@ -62,16 +60,15 @@ function seedLibraryDatabase() {
     ];
 
     localStorage.setItem(BOOKS_KEY, JSON.stringify(defaultBooks));
-    console.log(" Library system successfully seeded with 6 default books!");
+    console.log("Library system successfully seeded with 6 default books!");
   }
 }
-
 
 seedLibraryDatabase();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
